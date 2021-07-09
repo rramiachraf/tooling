@@ -30,7 +30,7 @@ function downloadRepo(){
         echo "Downloading $NAME..."
         REGEX='\/.*\/.*\/releases\/download\/.*\/.*linux[-_]amd64.*\.\w+'
         LINK=$(curl "$1/releases" -s | grep "$REGEX" -ioP | head -n 1 | cut -c 2-)
-	FILE=$(echo "$LINK" | grep "[^\/][a-zA-Z0-9\._]+$" -oPi)
+	FILE=$(echo "$LINK" | grep "[^\/][a-zA-Z0-9\._-]+$" -oPi)
 	curl "https://github.com/$LINK" -sL -o "$FILE"
 	mkdir "$NAME"
 	tar -xf "$FILE" -C "$NAME"
