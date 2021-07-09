@@ -70,5 +70,10 @@ done
 downloadNodeJS
 downloadGolang
 
+#Update npm
+echo "Updating npm to the latest version"
+npm install -g npm --silent
+
 # Install zx and yarn
-npm install -g yarn zx
+echo "Installing yarn and zx"
+npm install -g --silent yarn zx
