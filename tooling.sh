@@ -26,7 +26,7 @@ git clone "https://github.com/fuzzdb-project/fuzzdb" "$DIRECTORY/fuzzdb" -q
 function downloadRepo(){
 	NAME=$(echo "$1" | grep "[^\/]\w+$" -ioE)
         echo "Downloading $NAME..."
-        REGEX='\/.*\/.*\/releases\/download\/.*\/.*linux[-_]amd64\.tar\..{2}'
+        REGEX='\/.*\/.*\/releases\/download\/.*\/.*linux[-_]amd64.*\.\w+'
         LINK=$(curl "$1/releases" -s | grep "$REGEX" -ioP | head -n 1 | cut -c 2-)
 	FILE=$(echo "$LINK" | grep "[^\/][a-zA-Z0-9\._]+$" -oPi)
 	curl "https://github.com/$LINK" -sL -o "$FILE"
