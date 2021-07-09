@@ -69,8 +69,8 @@ downloadGolang
 
 #Update npm
 echo "Updating npm to the latest version..."
-npm install -g npm > /dev/null
+npm install -g npm --quiet --no-progress
 
 # Install zx and yarn
 echo "Installing yarn and zx..."
-npm install -g yarn zx > /dev/null
+npm install -g yarn zx --quiet --no-progress
