@@ -1,7 +1,7 @@
 ## Installation
 ```sh
 rramiachraf@distro:~$ git clone https://github.com/rramiachraf/tooling.git
-rramiachraf@distro:~$ sudo ./tooling.sh
+rramiachraf@distro:~$ sudo ./tooling/tooling.sh
 ```
 
 ## Things you'll install
