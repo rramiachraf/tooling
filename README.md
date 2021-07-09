@@ -1,5 +1,17 @@
-`https://github.com/rramiachraf/tooling.git`
-
-`chmod +x tooling.sh`
-
+## Installation
+`git clone https://github.com/rramiachraf/tooling.git`
 `sudo ./tooling.sh`
+
+## Things you'll install
+- [x] ffuf
+- [x] subfinder
+- [x] httpx
+- [x] waybackurls
+- [x] all.txt
+- [x] FuzzDB
+- [x] NodeJS
+- [x] Golang
+- [x] npm & yarn
+- [x] zx
+- [ ] Github CLI
+
