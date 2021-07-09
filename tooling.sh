@@ -2,7 +2,9 @@
 
 DIRECTORY="$HOME/hacking"
 
-if [ -d "$DIRECTORY" ]; then echo "[INFO] Using $DIRECTORY for files, binaries will be in /usr/bin"; else mkdir "$DIRECTORY";fi
+if [ -d "$DIRECTORY" ]; then true; else mkdir "$DIRECTORY";fi
+
+echo "[INFO] Using $DIRECTORY for files, binaries will be in /usr/bin"
 
 #GH_REPO="https://github.com/cli/cli"
 
@@ -69,8 +71,8 @@ downloadGolang
 
 #Update npm
 echo "Updating npm to the latest version..."
-npm install -g npm --quiet --no-progress
+npm install -g npm > /dev/null
 
 # Install zx and yarn
 echo "Installing yarn and zx..."
-npm install -g yarn zx --quiet --no-progress
+npm install -g yarn zx > /dev/null
