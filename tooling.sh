@@ -4,10 +4,6 @@ DIRECTORY="$HOME/hacking"
 
 if [ -d "$DIRECTORY" ]; then echo "[INFO] Using $DIRECTORY for files, binaries will be in /usr/bin"; else mkdir "$DIRECTORY";fi
 
-FUFF_REPO="https://github.com/ffuf/ffuf"
-SUBFINDER_REPO="https://github.com/projectdiscovery/subfinder"
-HTTPX_REPO="https://github.com/projectdiscovery/httpx"
-WAYBACKURLS_REPO="https://github.com/tomnomnom/waybackurls"
 #GH_REPO="https://github.com/cli/cli"
 
 declare -a repos=(
@@ -72,9 +68,9 @@ downloadNodeJS
 downloadGolang
 
 #Update npm
-echo "Updating npm to the latest version"
+echo "Updating npm to the latest version..."
 npm install -g npm --silent
 
 # Install zx and yarn
-echo "Installing yarn and zx"
+echo "Installing yarn and zx..."
 npm install -g --silent yarn zx
