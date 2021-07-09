@@ -2,7 +2,7 @@
 
 DIRECTORY="$HOME/hacking"
 
-if [ -d "$DIRECTORY" ]; then echo "Using $DIRECTORY for files, binaries will be in /usr/bin"; else mkdir "$DIRECTORY";fi
+if [ -d "$DIRECTORY" ]; then echo "[INFO] Using $DIRECTORY for files, binaries will be in /usr/bin"; else mkdir "$DIRECTORY";fi
 
 FUFF_REPO="https://github.com/ffuf/ffuf"
 SUBFINDER_REPO="https://github.com/projectdiscovery/subfinder"
@@ -24,6 +24,7 @@ curl "$ALL_TXT_GIST" -o "$DIRECTORY/all.txt"  -Ls
 
 # Download FuzzDB
 echo "Downloading FuzzDB..."
+rm -rf "$DIRECTORY/fuzzdb"
 git clone "https://github.com/fuzzdb-project/fuzzdb" "$DIRECTORY/fuzzdb" -q
 
 function downloadRepo(){
