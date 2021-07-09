@@ -1,5 +1,6 @@
 ## Installation
 `git clone https://github.com/rramiachraf/tooling.git`
+
 `sudo ./tooling.sh`
 
 ## Things you'll install
