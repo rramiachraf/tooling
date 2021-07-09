@@ -1,27 +1,42 @@
 #!/usr/bin/bash
 
-DIRECTORY="~/hacking"
+DIRECTORY="$HOME/hacking"
+
+if [ -d "$DIRECTORY" ]; then echo "Using $DIRECTORY for files, binaries will be in /usr/bin"; else mkdir "$DIRECTORY";fi
 
 FUFF_REPO="https://github.com/ffuf/ffuf"
 SUBFINDER_REPO="https://github.com/projectdiscovery/subfinder"
 HTTPX_REPO="https://github.com/projectdiscovery/httpx"
 WAYBACKURLS_REPO="https://github.com/tomnomnom/waybackurls"
-GH_REPO="https://github.com/cli/cli"
+#GH_REPO="https://github.com/cli/cli"
+
+declare -a repos=(
+		"https://github.com/ffuf/ffuf" 
+		"https://github.com/projectdiscovery/subfinder" 
+		"https://github.com/projectdiscovery/httpx" 
+		"https://github.com/tomnomnom/waybackurls"
+	)
 
 # Download jhaddix's all.txt wordlist
-#echo "Downloading all.txt..."
-#ALL_TXT_GIST="https://gist.github.com/jhaddix/f64c97d0863a78454e44c2f7119c2a6a/raw/96f4e51d96b2203f19f6381c8c545b278eaa0837/all.txt"
-#curl "$ALL_TXT_GIST" -o "all.txt"  -Ls
+echo "Downloading all.txt..."
+ALL_TXT_GIST="https://gist.github.com/jhaddix/f64c97d0863a78454e44c2f7119c2a6a/raw/96f4e51d96b2203f19f6381c8c545b278eaa0837/all.txt"
+curl "$ALL_TXT_GIST" -o "$DIRECTORY/all.txt"  -Ls
 
-# Download FuzzDB
-#echo "Downloading FuzzDB..."
-#git clone "https://github.com/fuzzdb-project/fuzzdb" "fuzzdb" -q
+Download FuzzDB
+echo "Downloading FuzzDB..."
+git clone "https://github.com/fuzzdb-project/fuzzdb" "$DIRECTORY/fuzzdb" -q
 
-function getDownloadURL(){
-        echo "Downloading $(echo "$1" | grep "[^\/]\w+$" -ioE)..."
-        REGEX='href="(\/.*\/.*\/releases\/download\/.*\/.*linux[-_]amd64.*)" rel="nofollow"'
-        URL=$(curl "$1/releases" -s | grep "$REGEX" -ioP | head -n 1)
-        echo "$URL"
+function downloadRepo(){
+	NAME=$(echo "$1" | grep "[^\/]\w+$" -ioE)
+        echo "Downloading $NAME..."
+        REGEX='\/.*\/.*\/releases\/download\/.*\/.*linux[-_]amd64\.tar\..{2}'
+        LINK=$(curl "$1/releases" -s | grep "$REGEX" -ioP | head -n 1 | cut -c 2-)
+	FILE=$(echo "$LINK" | grep "[^\/][a-zA-Z0-9\._]+$" -oPi)
+	curl "https://github.com/$LINK" -sL -o "$FILE"
+	mkdir "$NAME"
+	tar -xf "$FILE" -C "$NAME"
+	cp "$NAME/$NAME" "/usr/bin"
+	rm -rf "$NAME" "$FILE" 
 }
 
 function downloadNodeJS(){
@@ -46,6 +61,11 @@ function downloadGolang(){
         rm "$FILE"
 }
 
-getDownloadURL "$FUFF_REPO"
-downloadGolang
 
+for REPO in "${repos[@]}"
+do
+	downloadRepo "$REPO"
+done
+
+downloadNodeJS
+downloadGolang
