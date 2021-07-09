@@ -22,7 +22,7 @@ echo "Downloading all.txt..."
 ALL_TXT_GIST="https://gist.github.com/jhaddix/f64c97d0863a78454e44c2f7119c2a6a/raw/96f4e51d96b2203f19f6381c8c545b278eaa0837/all.txt"
 curl "$ALL_TXT_GIST" -o "$DIRECTORY/all.txt"  -Ls
 
-Download FuzzDB
+# Download FuzzDB
 echo "Downloading FuzzDB..."
 git clone "https://github.com/fuzzdb-project/fuzzdb" "$DIRECTORY/fuzzdb" -q
 
@@ -69,3 +69,6 @@ done
 
 downloadNodeJS
 downloadGolang
+
+# Install zx and yarn
+npm install -g yarn zx
