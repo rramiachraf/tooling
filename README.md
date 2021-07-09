@@ -1,7 +1,7 @@
 ## Installation
-`git clone https://github.com/rramiachraf/tooling.git`
+`rramiachraf@distro:~$ git clone https://github.com/rramiachraf/tooling.git`
 
-`sudo ./tooling.sh`
+`rramiachraf@distro:~$ sudo ./tooling.sh`
 
 ## Things you'll install
 - [x] ffuf
