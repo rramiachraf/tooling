@@ -1,6 +1,6 @@
 ## Installation
 ```sh
-rramiachraf@distro:~$ git clone https://github.com/rramiachraf/tooling.git`
+rramiachraf@distro:~$ git clone https://github.com/rramiachraf/tooling.git
 rramiachraf@distro:~$ sudo ./tooling.sh
 ```
 
