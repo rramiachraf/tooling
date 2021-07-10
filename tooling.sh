@@ -13,6 +13,7 @@ declare -a repos=(
 		"https://github.com/projectdiscovery/subfinder" 
 		"https://github.com/projectdiscovery/httpx" 
 		"https://github.com/tomnomnom/waybackurls"
+		"https://github.com/OWASP/Amass"
 	)
 
 # Download jhaddix's all.txt wordlist
