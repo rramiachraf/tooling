@@ -34,7 +34,12 @@ function downloadRepo(){
 	FILE=$(echo "$LINK" | grep "[^\/][a-zA-Z0-9\._-]+$" -oPi)
 	curl "https://github.com/$LINK" -sL -o "$FILE"
 	mkdir "$NAME"
-	tar -xf "$FILE" -C "$NAME"
+	if [ $(echo "$FILE" | grep "\w+$" -Poi | head -n 1) == "zip" ]
+	then
+		unzip "$FILE" -d "$NAME"
+	else
+		tar -xf "$FILE" -C "$NAME"
+	fi
 	cp "$NAME/$NAME" "/usr/bin"
 	rm -rf "$NAME" "$FILE" 
 }
