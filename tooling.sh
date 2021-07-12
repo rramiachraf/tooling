@@ -40,17 +40,19 @@ function downloadRepo(){
 		tar -xf "$FILE" -C "$NAME"
 	fi
 
-	SUB=$(echo "$NAME/"$(ls "$NAME" | head -n 1)"/$NAME")
+	SUB=$(echo "$NAME/"$(ls "$NAME" | head -n 1))
 
 	if isThereABinary $NAME
 	then
 		cp "$NAME/$NAME" "/usr/bin"
-	elif [ -f "$SUB"  ]
+	elif [ -f "$SUB/$NAME"  ]
 	then
-		cp "$SUB" "/usr/bin"
+		cp "$SUB/$NAME" "/usr/bin"
 	else
-		echo "[ERROR] No binary found. [DIR] $SUB"
+		copyToUsr "$SUB"
 	fi
+
+	rm -rf "$FILE" "$NAME"
 }
 
 function isThereABinary(){
@@ -62,6 +64,10 @@ function isThereABinary(){
         fi
 }
 
+function copyToUsr(){
+	cp "$1/bin" "$1/share" "$1/include" "$1/lib" "/usr/" -r &> /dev/null
+}
+
 function downloadNodeJS(){
         echo "Downloading NodeJS..."
         NODE_DEST=$(curl "https://nodejs.org/en" -Ls | grep "https:\/\/nodejs\.org\/dist\/v\d+.\d+.\d+" -iPo | tail -n 1)
@@ -69,13 +75,13 @@ function downloadNodeJS(){
         FOLDER=$(echo "$FILE" | sed "s/.tar.xz//")
         curl "$NODE_DEST/$FILE" -Ls -o "$FILE"
         tar -xf "$FILE"
-        cp "$FOLDER/bin" "$FOLDER/include" "$FOLDER/lib" "$FOLDER/share" "/usr" -r
+        copyToUsr "$FOLDER"
         rm "$FILE"
         rm -rf "$FOLDER"
 }
 
 function downloadGolang(){
-        echo "Downloading Golang"
+        echo "Downloading Golang..."
         URL="https://golang.org/dl"
         FILE=$(curl "$URL" -sL |  grep "go.*linux-amd64\.tar\.gz" -oPi | head -n 1)
         curl "$URL/$FILE" -sL -o "$FILE"
@@ -95,8 +101,8 @@ downloadGolang
 
 #Update npm
 echo "Updating npm to the latest version..."
-npm install -g npm > /dev/null
+npm install -g npm &> /dev/null
 
 # Install zx and yarn
 echo "Installing yarn and zx..."
-npm install -g yarn zx > /dev/null
+npm install -g yarn zx &> /dev/null
