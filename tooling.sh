@@ -14,6 +14,7 @@ declare -a repos=(
 		"https://github.com/projectdiscovery/httpx" 
 		"https://github.com/tomnomnom/waybackurls"
 		"https://github.com/OWASP/Amass"
+		"https://github.com/cli/cli"
 	)
 
 # Download jhaddix's all.txt wordlist
@@ -29,7 +30,7 @@ git clone "https://github.com/fuzzdb-project/fuzzdb" "$DIRECTORY/fuzzdb" -q
 function downloadRepo(){
 	NAME=$(echo "$1" | grep "[^\/]\w+$" -ioE)
         echo "Downloading $NAME..."
-        REGEX='\/.*\/.*\/releases\/download\/.*\/.*linux[-_]amd64.*\.\w+'
+        REGEX='\/.*\/.*\/releases\/download\/.*\/.*linux[-_]amd64.*\.(?:zip|gz|xz|tgz)'
         LINK=$(curl "$1/releases" -s | grep "$REGEX" -ioP | head -n 1 | cut -c 2-)
 	FILE=$(echo "$LINK" | grep "[^\/][a-zA-Z0-9\._-]+$" -oPi)
 	curl "https://github.com/$LINK" -sL -o "$FILE"
@@ -40,8 +41,12 @@ function downloadRepo(){
 	else
 		tar -xf "$FILE" -C "$NAME"
 	fi
-	cp "$NAME/$NAME" "/usr/bin"
-	rm -rf "$NAME" "$FILE" 
+	if [ $(ls "$NAME" | grep "^$NAME\$") ]
+	then
+		cp "$NAME/$NAME" "/usr/bin"
+	else
+		echo "[ERROR] No binaries for $NAME"
+	fi
 }
 
 function downloadNodeJS(){
