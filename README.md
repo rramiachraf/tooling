@@ -18,3 +18,7 @@ rramiachraf@distro:~$ sudo ./tooling/tooling.sh
 - [x] zx
 - [x] Github CLI
 - [x] Amass
+- [ ] sqlmap
+- [ ] dirsearch
+- [ ] assetfinder
+- [ ] notify
