@@ -6,8 +6,6 @@ if [ -d "$DIRECTORY" ]; then true; else mkdir "$DIRECTORY";fi
 
 echo "[INFO] Using $DIRECTORY for files, binaries will be in /usr/bin"
 
-#GH_REPO="https://github.com/cli/cli"
-
 declare -a repos=(
 		"https://github.com/ffuf/ffuf" 
 		"https://github.com/projectdiscovery/subfinder" 
