@@ -15,5 +15,5 @@ rramiachraf@distro:~$ sudo ./tooling/tooling.sh
 - [x] Golang
 - [x] npm & yarn
 - [x] zx
-- [ ] Github CLI
-- [ ] Amass
+- [x] Github CLI
+- [x] Amass
