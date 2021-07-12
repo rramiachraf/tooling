@@ -16,4 +16,4 @@ rramiachraf@distro:~$ sudo ./tooling/tooling.sh
 - [x] npm & yarn
 - [x] zx
 - [ ] Github CLI
-
+- [ ] Amass
