@@ -22,3 +22,4 @@ rramiachraf@distro:~$ sudo ./tooling/tooling.sh
 - [ ] dirsearch
 - [ ] assetfinder
 - [ ] notify
+- [ ] jq
