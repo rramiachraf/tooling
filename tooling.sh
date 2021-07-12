@@ -11,7 +11,7 @@ declare -a repos=(
 		"https://github.com/projectdiscovery/subfinder" 
 		"https://github.com/projectdiscovery/httpx" 
 		"https://github.com/tomnomnom/waybackurls"
-		"https://github.com/OWASP/Amass"
+		"https://github.com/OWASP/amass"
 		"https://github.com/cli/cli"
 	)
 
@@ -35,16 +35,31 @@ function downloadRepo(){
 	mkdir "$NAME"
 	if [ $(echo "$FILE" | grep "\w+$" -Poi | head -n 1) == "zip" ]
 	then
-		unzip "$FILE" -d "$NAME"
+		unzip "$FILE" -d "$NAME" > /dev/null
 	else
 		tar -xf "$FILE" -C "$NAME"
 	fi
-	if [ $(ls "$NAME" | grep "^$NAME\$") ]
+
+	SUB=$(echo "$NAME/"$(ls "$NAME" | head -n 1)"/$NAME")
+
+	if isThereABinary $NAME
 	then
 		cp "$NAME/$NAME" "/usr/bin"
+	elif [ -f "$SUB"  ]
+	then
+		cp "$SUB" "/usr/bin"
 	else
-		echo "[ERROR] No binaries for $NAME"
+		echo "[ERROR] No binary found. [DIR] $SUB"
 	fi
+}
+
+function isThereABinary(){
+        if [ $(ls "$1" | grep "^$1\$") ]
+        then
+                return 0
+        else
+                return 1
+        fi
 }
 
 function downloadNodeJS(){
