@@ -1,10 +1,14 @@
 #!/bin/bash
 
+# Styling output
+tput bold
+tput setaf 34
+
 DIRECTORY="$HOME/hacking"
 
 if [ -d "$DIRECTORY" ]; then true; else mkdir "$DIRECTORY";fi
 
-tput bold; echo "[INFO] Using $DIRECTORY for files, binaries will be in /usr/bin"
+echo "[INFO] Using $DIRECTORY for files, binaries will be in /usr/bin"
 
 declare -a repos=(
 		"https://github.com/ffuf/ffuf" 
@@ -109,4 +113,4 @@ npm install -g npm &> /dev/null
 echo "Installing yarn and zx..."
 npm install -g yarn zx &> /dev/null
 
-tput bold; echo "Everything is ready, go hack something"
+echo "**Everything is ready, go hack something**"
