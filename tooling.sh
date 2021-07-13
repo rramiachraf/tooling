@@ -2,7 +2,7 @@
 
 # Styling output
 tput bold
-tput setaf 34
+tput setaf 6
 
 DIRECTORY="$HOME/hacking"
 
@@ -112,5 +112,3 @@ npm install -g npm &> /dev/null
 # Install zx and yarn
 echo "Installing yarn and zx..."
 npm install -g yarn zx &> /dev/null
-
-echo "**Everything is ready, go hack something**"
