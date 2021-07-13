@@ -20,6 +20,6 @@ rramiachraf@distro:~$ sudo ./tooling/tooling.sh
 - [x] Amass
 - [ ] sqlmap
 - [ ] dirsearch
-- [ ] assetfinder
-- [ ] notify
+- [x] assetfinder
+- [x] notify
 - [ ] jq
