@@ -4,7 +4,7 @@ DIRECTORY="$HOME/hacking"
 
 if [ -d "$DIRECTORY" ]; then true; else mkdir "$DIRECTORY";fi
 
-echo "[INFO] Using $DIRECTORY for files, binaries will be in /usr/bin"
+tput bold; echo "[INFO] Using $DIRECTORY for files, binaries will be in /usr/bin"
 
 declare -a repos=(
 		"https://github.com/ffuf/ffuf" 
@@ -108,3 +108,5 @@ npm install -g npm &> /dev/null
 # Install zx and yarn
 echo "Installing yarn and zx..."
 npm install -g yarn zx &> /dev/null
+
+tput bold; echo "Everything is ready, go hack something"
