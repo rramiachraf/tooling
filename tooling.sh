@@ -4,7 +4,7 @@
 tput bold
 tput setaf 6
 
-DIRECTORY="/home/$USER/hacking"
+DIRECTORY=$(pwd)"/hacking"
 
 if [ -d "$DIRECTORY" ]; then true; else mkdir "$DIRECTORY";fi
 
