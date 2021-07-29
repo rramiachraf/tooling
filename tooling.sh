@@ -31,6 +31,13 @@ echo "Downloading FuzzDB..."
 rm -rf "$DIRECTORY/fuzzdb"
 git clone "https://github.com/fuzzdb-project/fuzzdb" "$DIRECTORY/fuzzdb" -q
 
+# Download masscan
+echo "Downloading masscan..."
+git clone https://github.com/robertdavidgraham/masscan -q
+make -C masscan/ -s
+cp masscan/bin/masscan /usr/bin
+rm -rf masscan
+
 function downloadRepo(){
 	NAME=$(echo "$1" | grep "[^\/]\w+$" -ioE)
         echo "Downloading $NAME..."
