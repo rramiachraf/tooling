@@ -119,3 +119,6 @@ npm install -g npm &> /dev/null
 # Install zx and yarn
 echo "Installing yarn and zx..."
 npm install -g yarn zx &> /dev/null
+
+# Reset colors
+tput init
