@@ -1,5 +1,5 @@
 ## Installation
-*Make sure you have unzip.
+*Make sure you have unzip, gcc and make.
 ```sh
 rramiachraf@distro:~$ git clone https://github.com/rramiachraf/tooling.git
 rramiachraf@distro:~$ sudo ./tooling/tooling.sh
