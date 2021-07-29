@@ -1,7 +1,19 @@
 ## Installation
-*Make sure you have unzip, gcc and make.
+*Make sure you have unzip, git, gcc and make.
+#### Debian/Ubuntu
 ```sh
+rramiachraf@distro:~$ sudo apt update
+rramiachraf@distro:~$ sudo apt install unzip gcc make git
 rramiachraf@distro:~$ git clone https://github.com/rramiachraf/tooling.git
+```
+#### RedHat/Fedora
+```sh
+rramiachraf@distro:~$ sudo dnf update
+rramiachraf@distro:~$ sudo dnf install unzip git make gcc
+rramiachraf@distro:~$ git clone https://github.com/rramiachraf/tooling.git
+```
+## Usage
+```sh
 rramiachraf@distro:~$ sudo ./tooling/tooling.sh
 ```
 
