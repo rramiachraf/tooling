@@ -41,6 +41,7 @@ rm -rf masscan
 # Download jq
 echo "Downloading jq..."
 curl -sL https://github.com/stedolan/jq/releases/download/jq-1.6/jq-linux64 -o "jq"
+chmod +x jq
 cp jq /usr/bin
 rm jq
 
