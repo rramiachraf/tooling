@@ -31,9 +31,9 @@ rramiachraf@distro:~$ sudo ./tooling/tooling.sh
 - [x] Github CLI
 - [x] Amass
 - [x] masscan
-- [ ] sqlmap
-- [ ] dirsearch
-- [ ] massdns
+- [ ] sqlmap (Not yet implemented)
+- [ ] dirsearch (Not yet implemented)
+- [ ] massdns (Not yet implemented)
 - [x] assetfinder
 - [x] notify
 - [x] jq
