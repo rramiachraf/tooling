@@ -25,7 +25,7 @@ rramiachraf@distro:~$ sudo ./tooling/tooling.sh
 - [x] all.txt
 - [x] FuzzDB
 - [x] NodeJS
-- [x] Golang (Not working :/)
+- [x] Golang (Not working due to $PATH in sudo mode)
 - [x] npm & yarn
 - [x] zx
 - [x] Github CLI
