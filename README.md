@@ -36,4 +36,4 @@ rramiachraf@distro:~$ sudo ./tooling/tooling.sh
 - [ ] massdns
 - [x] assetfinder
 - [x] notify
-- [ ] jq
+- [x] jq
