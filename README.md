@@ -25,7 +25,7 @@ rramiachraf@distro:~$ sudo ./tooling/tooling.sh
 - [x] all.txt
 - [x] FuzzDB
 - [x] NodeJS
-- [x] Golang
+- [x] Golang (Not working :/)
 - [x] npm & yarn
 - [x] zx
 - [x] Github CLI
@@ -33,6 +33,7 @@ rramiachraf@distro:~$ sudo ./tooling/tooling.sh
 - [x] masscan
 - [ ] sqlmap
 - [ ] dirsearch
+- [ ] massdns
 - [x] assetfinder
 - [x] notify
 - [ ] jq
