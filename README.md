@@ -34,6 +34,7 @@ rramiachraf@distro:~$ sudo ./tooling/tooling.sh
 - [ ] sqlmap (Not yet implemented)
 - [ ] dirsearch (Not yet implemented)
 - [ ] massdns (Not yet implemented)
+- [ ] googler (Not yet implemented)
 - [x] assetfinder
 - [x] notify
 - [x] jq
