@@ -21,6 +21,7 @@ rramiachraf@distro:~$ sudo ./tooling/tooling.sh
 - [x] ffuf
 - [x] subfinder
 - [x] httpx
+- [x] fprobe
 - [x] waybackurls
 - [x] all.txt
 - [x] FuzzDB
