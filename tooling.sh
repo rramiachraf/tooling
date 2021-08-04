@@ -14,6 +14,7 @@ declare -a repos=(
 		"https://github.com/ffuf/ffuf" 
 		"https://github.com/projectdiscovery/subfinder" 
 		"https://github.com/projectdiscovery/httpx"
+		"https://github.com/theblackturtle/fprobe"
 	        "https://github.com/projectdiscovery/notify"	
 		"https://github.com/tomnomnom/waybackurls"
 		"https://github.com/tomnomnom/assetfinder"
