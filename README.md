@@ -3,7 +3,7 @@
 #### Debian/Ubuntu
 ```sh
 rramiachraf@distro:~$ sudo apt update
-rramiachraf@distro:~$ sudo apt install unzip gcc make git
+rramiachraf@distro:~$ sudo apt install unzip gcc make git -y
 rramiachraf@distro:~$ git clone https://github.com/rramiachraf/tooling.git
 ```
 #### RedHat/Fedora
