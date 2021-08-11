@@ -31,7 +31,7 @@ rramiachraf@distro:~$ sudo ./tooling/tooling.sh
 - [x] zx
 - [x] Github CLI
 - [x] Amass
-- [ ] GoSpider
+- [ ] GoSpider (Not yet implemented)
 - [x] masscan
 - [ ] sqlmap (Not yet implemented)
 - [ ] dirsearch (Not yet implemented)
